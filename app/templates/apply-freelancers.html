@@ -8,157 +8,32 @@
       rel="stylesheet"
     />
     <title>JobLynk - Application Form</title>
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        font-family: Poppins;
-        background-color: #f4f6f9;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-height: 100vh;
-      }
-
-      header {
-        width: 100%;
-        padding: 20px 5%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: transparent;
-      }
-
-      .logo {
-        font-size: 24px;
-        font-weight: bold;
-        color: #267dff;
-      }
-
-      nav a {
-        margin-left: 20px;
-        text-decoration: none;
-        color: #000;
-        font-weight: 600;
-        font-size: 16px;
-      }
-
-      .form-container {
-        background-color: #ffffff;
-        margin: 30px auto;
-        padding: 40px 30px;
-        border-radius: 15px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        width: 90%;
-        max-width: 500px;
-      }
-
-      .form-container h2 {
-        color: #267dff;
-        text-align: center;
-        margin-bottom: 5px;
-      }
-
-      .form-container p {
-        text-align: center;
-        color: #666;
-        margin-bottom: 30px;
-        font-size: 14px;
-      }
-
-      input[type="text"],
-      textarea {
-        width: 100%;
-        padding: 15px;
-        margin-bottom: 15px;
-        border: none;
-        border-radius: 25px;
-        background-color: #dbe6ff;
-        font-size: 14px;
-        color: #333;
-      }
-
-      textarea {
-        resize: none;
-        height: 100px;
-      }
-
-      .file-upload {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #dbe6ff;
-        padding: 15px;
-        border-radius: 25px;
-        font-size: 14px;
-        margin-bottom: 20px;
-      }
-
-      .file-upload input[type="file"] {
-        display: none;
-      }
-
-      .file-upload label {
-        cursor: pointer;
-        color: #333;
-      }
-
-      .Apply-btn {
-        display: flex;
-        justify-content: center;
-        /* width: 100%; */
-        margin-top: 30px;
-      }
-
-      .btn {
-        background-color: #7ed957;
-        color: #fff;
-        padding: 15px 40px;
-        border: none;
-        border-radius: 50px;
-        font-size: 18px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background 0.3s ease;
-      }
-      .btn:hover {
-        background-color: #6ac245;
-      }
-
-      @media screen and (max-width: 480px) {
-        header {
-          flex-direction: column;
-          align-items: flex-start;
-          padding: 15px;
-        }
-
-        nav {
-          margin-top: 10px;
-        }
-
-        nav a {
-          margin-left: 0;
-          margin-right: 15px;
-          font-size: 14px;
-        }
-
-        .form-container {
-          padding: 30px 20px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="/app/static/css/apply-freelancers.css" />
+    <script
+      src="https://kit.fontawesome.com/130278c96e.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header>
-      <div class="logo">JobLynk</div>
-      <nav>
-        <a href="#">Dashboard</a>
-        <a href="#">About Us</a>
-        <a href="#">Contact</a>
+      <nav class="navbar">
+        <div class="container">
+          <h2 class="logo">JobLynk</h2>
+
+          <ul class="links">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <div class="toggele_btn">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+        <div class="dropdown_menu">
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </div>
       </nav>
     </header>
 
@@ -186,5 +61,25 @@
         </div>
       </form>
     </div>
+
+    <script>
+      const toggleBtn = document.querySelector(".toggele_btn");
+      const toggleBtnIcon = document.querySelector(".toggele_btn i");
+      const dropDownMenu = document.querySelector(".dropdown_menu");
+
+      toggleBtn.onclick = function () {
+        dropDownMenu.classList.toggle("open");
+        const isOpen = dropDownMenu.classList.contains("open");
+
+        toggleBtnIcon.classList = isOpen
+          ? "fa-solid fa-xmark"
+          : "fa-solid fa-bars";
+      };
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
